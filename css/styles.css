@@ -1,0 +1,15 @@
+.container {
+  position: relative;
+}
+
+form {
+  float: right;
+  margin-top: 1em;
+  margin-right: 1.5em;
+}
+
+.form-group {
+  color: #cecece;
+  padding: 5px 10px 0 10px;
+  background-color: blue;
+}

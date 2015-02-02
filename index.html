@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa de Venezuela</title>
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <style type="text/css">
+    body {
+      background-color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="col-md-8 col-md-offset-1">
+      <object type="image/svg+xml" data="img/venezuela.svg" class="img-responsive"></object>
+    </div>
+    <form>
+      <div class="form-group">
+        <input id="merida" type="checkbox">
+        <label for="merida">Mérida</label>
+      </div>
+      <div class="form-group">
+        <input id="miranda" type="checkbox">
+        <label for="miranda">Miranda</label>
+      </div>
+      <div class="form-group">
+        <input id="monagas" type="checkbox">
+        <label for="monagas">Monagas</label>
+      </div>
+      <div class="form-group">
+        <input id="nueva-esparta" type="checkbox">
+        <label for="nueva-esparta">Nueva Esparta</label>
+      </div>
+      <div class="form-group">
+        <input id="portuguesa" type="checkbox">
+        <label for="portuguesa">Portuguesa</label>
+      </div>
+      <div class="form-group">
+        <input id="sucre" type="checkbox">
+        <label for="sucre">Sucre</label>
+      </div>
+      <div class="form-group">
+        <input id="tachira" type="checkbox">
+        <label for="tachira">Táchira</label>
+      </div>
+      <div class="form-group">
+        <input id="trujillo" type="checkbox">
+        <label for="trujillo">Trujillo</label>
+      </div>
+      <div class="form-group">
+        <input id="vargas" type="checkbox">
+        <label for="vargas">Vargas</label>
+      </div>
+      <div class="form-group">
+        <input id="yaracuy" type="checkbox">
+        <label for="yaracuy">Yaracuy</label>
+      </div>
+      <div class="form-group">
+        <input id="zulia" type="checkbox">
+        <label for="zulia">Zulia</label>
+      </div>
+      <div class="form-group">
+        <input id="distrito-capital" type="checkbox">
+        <label for="distrito-capital">Distrito Capital</label>
+      </div>
+    </form>
+    <form>
+      <div class="form-group">
+        <input id="amazonas" type="checkbox">
+        <label for="amazonas">Amazonas</label>
+      </div>
+      <div class="form-group">
+        <input id="anzoategui" type="checkbox">
+        <label for="anzoategui">Anzoátegui</label>
+      </div>
+      <div class="form-group">
+        <input id="apure" type="checkbox">
+        <label for="apure">Apure</label>
+      </div>
+      <div class="form-group">
+        <input id="aragua" type="checkbox">
+        <label for="aragua">Aragua</label>
+      </div>
+      <div class="form-group">
+        <input id="barinas" type="checkbox">
+        <label for="barinas">Barinas</label>
+      </div>
+      <div class="form-group">
+        <input id="bolivar" type="checkbox">
+        <label for="bolivar">Bolívar</label>
+      </div>
+      <div class="form-group">
+        <input id="carabobo" type="checkbox">
+        <label for="carabobo">Carabobo</label>
+      </div>
+      <div class="form-group">
+        <input id="cojedes" type="checkbox">
+        <label for="cojedes">Cojedes</label>
+      </div>
+      <div class="form-group">
+        <input id="delta-amacuro" type="checkbox">
+        <label for="delta-amacuro">Delta Amacuro</label>
+      </div>
+      <div class="form-group">
+        <input id="falcon" type="checkbox">
+        <label for="falcon">Falcón</label>
+      </div>
+      <div class="form-group">
+        <input id="guarico" type="checkbox">
+        <label for="guarico">Guárico</label>
+      </div>
+      <div class="form-group">
+        <input id="lara" type="checkbox">
+        <label for="lara">Lara</label>
+      </div>
+    </form>
+  </div>
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      var object = document.querySelector('object');
+      $('input').on('click', function() {
+        var state = object.getSVGDocument().querySelector('#'+this.id);
+        if ($(this).prop('checked')) {
+          state.style.fill = '#ff0000';
+          var animate = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+          animate.setAttributeNS(null, 'id', 'animate-'+this.id);
+          animate.setAttributeNS(null, 'attributeType', 'CSS');
+          animate.setAttributeNS(null, 'attributeName', 'fill');
+          animate.setAttributeNS(null, 'dur', '3s');
+          animate.setAttributeNS(null, 'repeatCount', 'indefinite');
+          animate.setAttribute('values', '#fdfcea; #ff0000; #fdfcea');
+          state.appendChild(animate);
+          animate.beginElement();
+        } else {
+          state.style.fill = '#fdfcea';
+          var animate = object.getSVGDocument().querySelector('#animate-'+this.id);
+          state.removeChild(animate);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
