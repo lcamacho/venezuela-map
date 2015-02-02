@@ -13,3 +13,8 @@ form {
   padding: 5px 10px 0 10px;
   background-color: blue;
 }
+
+.svg {
+  height: 100%;
+  max-width: 100%;
+}
